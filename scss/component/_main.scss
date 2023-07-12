@@ -1,0 +1,455 @@
+@use "sass:map";
+
+main {
+  grid-area: main;
+
+  h2 {
+    font-weight: 400;
+    color: $color-text;
+  }
+
+  h3 {
+    font-weight: 400;
+    color: $color-text;
+  }
+
+  .dashboard-container {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+
+    .dashboard {
+      background-color: white;
+      padding: 0 10px;
+      border-right: 1px solid lightgray;
+      flex-shrink: 0;
+    }
+    .tab-background {
+      flex-shrink: 1;
+      width: 100%;
+      background-color: #e3e3e3;
+      border-right: 1px solid lightgray;
+      border-bottom: 1px solid lightgray;
+    }
+  }
+
+  .alert {
+    background-color: $color-secondary;
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 4px;
+    color: $color-text;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .alert-banner-close {
+    margin-left: auto;
+    margin-right: 10px;
+  }
+}
+/* TRAFFIC*/
+
+#traffic {
+  padding: 0 10px;
+
+  .header {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: map.get($break-points, "tablet")) {
+      flex-direction: row;
+    }
+  }
+  .chart-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 10vw;
+
+    @media (min-width: map.get($break-points, "tablet")) {
+      justify-content: center;
+      margin: 0 0 0 auto;
+    }
+  }
+  h3 {
+    color: black;
+    margin-right: 8px;
+    padding: 5px;
+
+    &.active {
+      background: #91c794;
+      border-radius: 20px;
+    }
+  }
+}
+
+.other-graphs {
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+
+  @media (min-width: map.get($break-points, "tablet")) {
+    flex-direction: row;
+  }
+  .widget-container-half {
+    margin-bottom: 10px;
+  }
+}
+.daily-traffic {
+  flex: 0 0 50%;
+
+  @media (min-width: map.get($break-points, "tablet")) {
+    padding-right: 10px;
+  }
+}
+.mobil-users {
+  flex: 0 0 50%;
+  border-top: 1px solid lightgray;
+
+  @media (min-width: map.get($break-points, "tablet")) {
+    padding-left: 10px;
+    border-left: 1px solid lightgray;
+    border-top: 0;
+  }
+}
+/* SOCIAL STATS*/
+
+.social-stats {
+  padding: 0 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "header" "card-facebook" "card-instagram" "card-twitter";
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+
+  @media (min-width: map.get($break-points, "tablet")) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "header header header" "card-facebook card-instagram card-twitter";
+  }
+
+  h2 {
+    grid-area: header;
+  }
+}
+
+.social-container {
+  background-color: $color-social-background;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+
+  padding: 1rem 5px;
+  display: flex;
+
+  .social-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .social-text > h4 {
+    color: $color-social-header;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .social-text > span {
+    color: $color-social-text;
+    font-size: 32px;
+    line-height: 1;
+  }
+
+  &-facebook {
+    @extend .social-container;
+    grid-area: card-facebook;
+  }
+
+  &-instagram {
+    @extend .social-container;
+    grid-area: card-instagram;
+  }
+
+  &-twitter {
+    @extend .social-container;
+    grid-area: card-twitter;
+  }
+  .social-image {
+    width: 65px;
+    height: 65px;
+    color: $color-accent;
+    margin: 0 0.75rem;
+    align-self: center;
+  }
+}
+
+.member-area {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "new-members" "recent-activity" "message-user" "settings";
+  padding-bottom: 20px;
+
+  @media (min-width: map.get($break-points, desktop)) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "new-members recent-activity" "message-user settings";
+  }
+
+  h2 {
+    grid-area: header;
+  }
+}
+
+/* NEW MEMBERS*/
+.new-members {
+  grid-area: new-members;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  @media (min-width: map.get($break-points, "desktop")) {
+    border-right: 1px solid lightgray;
+  }
+  h3 {
+    margin-bottom: 0;
+  }
+}
+.members-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  margin: 0 10px 10px 0;
+  min-height: 100px;
+
+  &:last-child {
+    border: 0;
+  }
+
+  @media (min-width: map.get($break-points, "tablet")) {
+    flex-direction: row;
+  }
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.members-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: map.get($break-points, "tablet")) {
+    align-items: flex-start;
+    margin-left: 10px;
+  }
+}
+.members-text p {
+  text-align: left;
+  margin: 0;
+  font-size: 0.8 rem;
+  color: $color-text;
+
+  strong {
+    color: $color-text;
+  }
+}
+span.members-date {
+  text-align: right;
+  font-size: 0.8 rem;
+  color: $color-text;
+
+  @media (min-width: map.get($break-points, "tablet")) {
+    margin: 0 0 0 auto;
+  }
+}
+
+span.members-chevron {
+  text-align: right;
+  font-size: 0.8 rem;
+  color: gray;
+  display: none;
+
+  @media (min-width: map.get($break-points, "tablet")) {
+    margin: 0 0 0 auto;
+    display: inline;
+  }
+}
+
+.members-text a {
+  margin: 0;
+  color: $color-secondary;
+}
+/* RECENT ACTIVITY*/
+
+.recent-activity {
+  grid-area: recent-activity;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  h3 {
+    margin-bottom: 0;
+  }
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.members-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: map.get($break-points, "tablet")) {
+    align-items: flex-start;
+    margin-left: 10px;
+  }
+}
+
+.members-text a {
+  margin: 0;
+  color: $color-secondary;
+}
+
+/* MESSAGE USER*/
+.message-user {
+  padding: 10px;
+  grid-area: message-user;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid lightgray;
+
+  @media (min-width: map.get($break-points, "desktop")) {
+    border-right: 1px solid lightgray;
+  }
+}
+.form-field,
+.form-area {
+  width: 100%;
+  margin: 10px 0;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  font-size: 0.9rem;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+}
+.form-area {
+  outline: none;
+  height: 7rem;
+}
+
+.button-primary {
+  width: 100%;
+  margin: 10px 0;
+  padding: 1rem 5px;
+  background-color: $color-secondary;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.button-disabled {
+  background-color: #ccc;
+  width: 100%;
+  margin: 10px 0 10px 10px;
+  padding: 1rem 5px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+}
+/* Settings*/
+
+.settings {
+  padding: 10px;
+  grid-area: settings;
+  border-bottom: none;
+  border-top: 1px solid lightgray;
+
+  h3 {
+    color: $color-text;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: map.get($break-points, "tablet")) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.switch-light.switch-ios {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+
+  > span {
+    width: 100px;
+  }
+
+  strong {
+    width: 33%;
+    color: gray;
+  }
+
+  a:focus-visible {
+    border-color: white;
+  }
+
+  input:checked ~ span {
+    border-color: $color-secondary;
+    box-shadow: inset 0 0 0 30px $color-secondary;
+    a {
+      border-color: white;
+    }
+  }
+}
+.form-field-settings {
+  background-color: #fafafa;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  height: auto;
+  outline: 0;
+  width: 100%;
+  margin-top: auto;
+  padding: 1rem 5px;
+  color: lightgrey;
+}
+
+.checkbox On Off {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.settings-button {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  color: #fff;
+  margin-top: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 20px;
+}

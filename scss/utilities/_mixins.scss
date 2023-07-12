@@ -1,0 +1,13 @@
+@mixin mq($break) {
+    @if map-has-key($map: $break-points, $key: $break) {
+        & {
+            @media only screen and (min-width: map-get($map: $break-points, $key: $break)) {
+                @content;
+            }
+        }
+    }
+
+    @else {
+        @warn "#{$break} key was not found in the break-points map.";
+    }
+}

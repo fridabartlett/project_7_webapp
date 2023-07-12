@@ -1,0 +1,20 @@
+@use "sass:map";
+
+body {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main";
+
+  @media (min-width: map.get($break-points, "tablet")) {
+    grid-template-columns: auto minmax(344px, 944px) minmax(344px, 944px);
+    grid-template-areas:
+      "header header header"
+      "nav main main";
+  }
+}

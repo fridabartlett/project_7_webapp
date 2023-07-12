@@ -1,0 +1,22 @@
+@use "sass:map";
+
+nav {
+  grid-area: nav;
+  background-color: $color-primary;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  padding: 0;
+
+  img {
+    width: 25px;
+    height: 25px;
+    margin: 20px;
+  }
+
+  @media (min-width: map.get($break-points, "tablet")) {
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+  }
+}
