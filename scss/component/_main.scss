@@ -50,7 +50,7 @@ main {
 }
 /* TRAFFIC*/
 
-#traffic {
+.traffic {
   padding: 0 10px;
 
   .header {
@@ -65,7 +65,6 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0 10vw;
 
     @media (min-width: map.get($break-points, "tablet")) {
       justify-content: center;
@@ -182,9 +181,16 @@ main {
   .social-image {
     width: 65px;
     height: 65px;
-    color: $color-accent;
     margin: 0 0.75rem;
     align-self: center;
+    background-color: $color-secondary;
+    border-radius: 50%;
+    display: flex;
+    svg {
+      margin: auto;
+      width: 34px;
+      height: 34px;
+    }
   }
 }
 
@@ -400,12 +406,25 @@ span.members-chevron {
   margin: 5px;
 
   > span {
+    margin-left: auto;
     width: 100px;
+
+    @media (min-width: map.get($break-points, "tablet")) {
+      margin-left: 0;
+    }
   }
 
   strong {
-    width: 33%;
     color: gray;
+    white-space: nowrap;
+
+    @media (min-width: map.get($break-points, "desktop")) {
+      width: 40%;
+    }
+
+    @media (min-width: map.get($break-points, "tablet")) and (max-width: map.get($break-points, "desktop")) {
+      width: 33%;
+    }
   }
 
   a:focus-visible {
